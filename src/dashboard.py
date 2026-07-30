@@ -25,6 +25,7 @@ except Exception as e:
 # Define the input format for each feature here.
 # Allowed input types:
 # - "binary": renders a 0/1 select box
+# - "checkbox": renders a yes/no checkbox and stores 1/0
 # - "continuous": renders a numeric input with the configured step
 #
 # Example:
@@ -38,6 +39,41 @@ FEATURE_INPUT_FORMATS = {
     feature_name: {"type": "binary"}
     for feature_name in feature_names
 }
+
+CHECKBOX_GROUP_KEYS = (
+    "sector_of_deployment",
+    "harm_distribution_basis",
+    "risk_subdomain",
+    "tech",
+)
+
+
+def default_feature_label(feature_name):
+    return feature_name.replace("_", " ").title()
+
+
+# Edit this mapping to control the label shown for any feature input.
+# The same labels apply to binary, continuous, and checkbox-rendered features.
+# Keys are model feature names, values are the display labels.
+FEATURE_DISPLAY_LABELS = {
+    feature_name: default_feature_label(feature_name)
+    for feature_name in feature_names
+}
+
+# Example overrides:
+# FEATURE_DISPLAY_LABELS["public_sector_deployment"] = "Public Sector Use"
+# FEATURE_DISPLAY_LABELS["autonomy_level"] = "Autonomy Score"
+# FEATURE_DISPLAY_LABELS["sector_of_deployment"] = "Sector of Deployment Enabled"
+# Group headers for checkbox series can also be customized here.
+FEATURE_DISPLAY_LABELS.update(
+    {
+        "physical_objects": "Does the AI system interact with physical objects?",
+        "sector_of_deployment": "Sector of Deployment Enabled",
+        "harm_distribution_basis": "Harm Distribution Basis",
+        "risk_subdomain": "Risk Subdomain",
+        "tech": "Tech",
+    }
+)
 
 # List the features that should use the shared continuous 0.5-step input.
 CONTINUOUS_FEATURES = [
@@ -59,27 +95,61 @@ for feature_name in CONTINUOUS_FEATURES:
         "max": 1.0
     }
 
+def is_checkbox_feature(feature_name):
+    return any(
+        feature_name == feature_key or feature_name.startswith(f"{feature_key}")
+        for feature_key in CHECKBOX_GROUP_KEYS
+    )
+
+
+def get_checkbox_group_name(feature_name):
+    for feature_key in CHECKBOX_GROUP_KEYS:
+        if feature_name == feature_key or feature_name.startswith(f"{feature_key}"):
+            return feature_key
+    return feature_name
+
+
+def get_feature_label(feature_name):
+    return FEATURE_DISPLAY_LABELS.get(feature_name, default_feature_label(feature_name))
+
+
+for feature_name in feature_names:
+    if is_checkbox_feature(feature_name):
+        FEATURE_INPUT_FORMATS[feature_name] = {"type": "checkbox"}
+
 
 def render_feature_input(feature_name, index):
     feature_format = FEATURE_INPUT_FORMATS.get(feature_name, {"type": "continuous", "step": 0.5})
+    label = get_feature_label(feature_name)
 
     if feature_format.get("type") == "binary":
-        return st.selectbox(
-            label=feature_name,
+        return st.radio(
+            label=label,
             options=[0, 1],
-            format_func=lambda value: "0 - No" if value == 0 else "1 - Yes",
+            format_func=lambda value: "No" if value == 0 else "Yes",
+            horizontal=True,
             key=f"feature_{index}",
         )
 
-    return st.number_input(
-        label=feature_name,
-        value=float(feature_format.get("value", 0.0)),
-        step=float(feature_format.get("step", 0.5)),
-        min_value=feature_format.get("min"),
-        max_value=feature_format.get("max"),
+    if feature_format.get("type") == "checkbox":
+        return int(
+            st.checkbox(
+                label=label,
+                key=f"feature_{index}",
+            )
+        )
+
+    return st.radio(
+        label=label,
+        options=[0.0, 0.5, 1.0],
+        format_func=lambda value: {
+            0.0: "No",
+            0.5: "Partially",
+            1.0: "Yes",
+        }[float(value)],
+        horizontal=True,
         key=f"feature_{index}",
     )
-
 # Create the input template UI
 st.title("AI Risk Assessment - Data Input")
 
@@ -88,11 +158,30 @@ with st.form("input_form"):
     
     # Create input fields dynamically based on model features
     input_values = []
-    cols = st.columns(2)
+    cols = st.columns(1)
+    active_checkbox_group = None
     
     for i, feature_name in enumerate(feature_names):
-        with cols[i % 2]:
-            value = render_feature_input(feature_name, i)
+        with cols[i % 1]: # Adjust the number of columns as needed
+            feature_format = FEATURE_INPUT_FORMATS.get(feature_name, {"type": "continuous", "step": 0.5})
+
+            if feature_format.get("type") == "checkbox":
+                group_name = get_checkbox_group_name(feature_name)
+                group_label = FEATURE_DISPLAY_LABELS.get(group_name, default_feature_label(group_name))
+
+                if group_name != active_checkbox_group:
+                    st.write(group_label)
+                    active_checkbox_group = group_name
+
+                value = int(
+                    st.checkbox(
+                        label=get_feature_label(feature_name),
+                        key=f"feature_{i}",
+                    )
+                )
+            else:
+                active_checkbox_group = None
+                value = render_feature_input(feature_name, i)
             input_values.append(value)
     
     # Submit button
@@ -109,8 +198,6 @@ with st.form("input_form"):
             percentile_df = pd.read_csv(percentile_path)
             historical_risk_exposures = pd.to_numeric(percentile_df["risk_exposure"], errors="coerce").dropna()
             percentile_rank = float((historical_risk_exposures <= input_risk_exposure).mean() * 100)
-
-
             
 
             # Make prediction for the positive class (class 1)
