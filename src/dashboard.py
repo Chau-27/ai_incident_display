@@ -67,6 +67,41 @@ FEATURE_DISPLAY_LABELS = {
 # Group headers for checkbox series can also be customized here.
 FEATURE_DISPLAY_LABELS.update(
     {
+        "physical_objects": "Does the AI system interact with physical objects?",
+        "sector_of_deployment": "Sector of Deployment Enabled",
+        "harm_distribution_basis": "Harm Distribution Basis",
+        "risk_subdomain": "Risk Subdomain",
+        "tech": "Tech",
+    }
+)
+
+CHECKBOX_GROUP_KEYS = (
+    "sector_of_deployment",
+    "harm_distribution_basis",
+    "risk_subdomain",
+    "tech",
+)
+
+
+def default_feature_label(feature_name):
+    return feature_name.replace("_", " ").title()
+
+
+# Edit this mapping to control the label shown for any feature input.
+# The same labels apply to binary, continuous, and checkbox-rendered features.
+# Keys are model feature names, values are the display labels.
+FEATURE_DISPLAY_LABELS = {
+    feature_name: default_feature_label(feature_name)
+    for feature_name in feature_names
+}
+
+# Example overrides:
+# FEATURE_DISPLAY_LABELS["public_sector_deployment"] = "Public Sector Use"
+# FEATURE_DISPLAY_LABELS["autonomy_level"] = "Autonomy Score"
+# FEATURE_DISPLAY_LABELS["sector_of_deployment"] = "Sector of Deployment Enabled"
+# Group headers for checkbox series can also be customized here.
+FEATURE_DISPLAY_LABELS.update(
+    {
         "tech": "What kind of technology capability does the AI system have?",    
         "harm_distribution_basis": "What kind of harm is likely to occured from the AI system usage?",
         "risk_subdomain": "What are the likely causes of AI risk?",
