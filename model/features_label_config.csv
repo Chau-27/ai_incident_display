@@ -1,0 +1,65 @@
+features,form_label,risk_exposure_label
+physical_objects,Does the AI system interact with physical objects?,Risk of AI system Interecting with physical world
+not_study_or_research,Is the AI system usage applied outside of study or research purposes only? (YES = NOT for study and research purpose),Risk of AI usage is no longer confined for study an researc purposes
+impact_on_critical_services,Does the AI system impact critical services?        ,Risk of AI system affecting critical services
+rights_violation,Does the AI system likely to violate any legal rights?,Risk of AI system may cause legal rights violations
+involving_minor,Does the AI system involve minor(s)?,Risk of AI system may affect minority groups
+detrimental_content,Does the AI system likely to generate or promote detrimental content?,Risk of AI system may cause detrimental content
+protected_characteristic,Does the AI system likely to discriminate against protected characteristics?,Risk of AI system may discriminate against protected characteristics
+multiple_ai_interaction,Does the AI system have interaction with other AI systems?,Risk of AI system may cause harm or chained harm with other AI systems
+public_sector_deployment,Is the AI system deployed in public services?,Risk of AI system may affect public services
+designed_to_harm,Is the AI system designed to cause harm or facilitate harmful activities?,"Risk of AI system is designed to harm by design, thus increasing harm impact."
+deployed,Is the AI system deployed into production system?,AI system being deployed into production
+tech_vision,computer vision technology,Risk of AI system in relation to computer vision technological incident
+tech_nlp,natural language processing technology,Risk of AI system in relation to natural language processing technological incident
+tech_analytics,analytics technology,Risk of AI system in relation to analytical errors incident
+tech_robo_auto,robotics autonomous technology,Risk of AI system in relation to robotics and autonomous incident
+infrastructure_sectors_has_value,Does the AI system deployed in critical sectors?,Risk of AI system affecting critical sectors
+ai_not_tested,Is the AI system NOT tested or validated for safety and reliability? (Yes = NOT Tested),Risk of AI system not being properly tested prior to deployment
+autonomy_level_encoded,What is the autonomy level of the AI system?,Risk of AI system having inappropriate autonomy level
+risk_subdomain_1.1_discrimination_and_misrepresentation,Discrimination and Misrepresentation,Risk of AI system incident occurance due to Discrimination and Misrepresentation
+risk_subdomain_1.2_toxic_content,Toxic Content,Risk of AI system incident occurance due to Toxic Content
+risk_subdomain_1.3_unequal_performance,Unequal Performance,Risk of AI system incident occurance due to Unequal Performance
+risk_subdomain_2.1_compromise_on_pii,Compromise on PII,Risk of AI system incident occurance due to Compromise on PII
+risk_subdomain_2.2_security_vulnerabilities_expliotation,Security Vulnerabilities Exploitation,Risk of AI system incident occurance due to Security Vulnerabilities Exploitation
+risk_subdomain_3.1_false_or_misleading_information,False or Misleading Information,Risk of AI system incident occurance due to False or Misleading Information
+risk_subdomain_4.1_disinformation_surveillance_and_influence,Disinformation Surveillance and Influence,Risk of AI system incident occurance due to Disinformation Surveillance and Influence
+risk_subdomain_4.2_cyberattacks_weapon_development_or_mass_harm,Cyberattacks Weapon Development or Mass Harm,Risk of AI system incident occurance due to Cyberattacks Weapon Development or Mass Harm
+risk_subdomain_4.3_fraudulent_or_manipulation,Fraudulent or Manipulation,Risk of AI system incident occurance due to Fraudulent or Manipulation
+risk_subdomain_5.1_overreliance_and_unsafe_use,Overreliance and Unsafe Use,Risk of AI system incident occurance due to Overreliance and Unsafe Use
+risk_subdomain_6.1_power_centralization_and_unfair_distribution_of_benefits,Power Centralization and Unfair Distribution of Benefits,Risk of AI system incident occurance due to Power Centralization and Unfair Distribution of Benefits
+risk_subdomain_6.2_inequality_and_decline_in_employment_quality,Inequality and Decline in Employment Quality,Risk of AI system incident occurance due to Inequality and Decline in Employment Quality
+risk_subdomain_7.1_ai_goals_conflict_with_human_goals,AI Goals Conflict With Human Goals,Risk of AI system incident occurance due to AI Goals Conflict With Human Goals
+risk_subdomain_7.3_lack_capability_robustness,Lack Capability Robustness,Risk of AI system incident occurance due to Lack of Capability Robustness
+risk_subdomain_7.4_lack_transparency_interpretability,Lack Transparency Interpretability,Risk of AI system incident occurance due to Lack of Transparency or Interpretability
+harm_distribution_basis_age,Age,Risk of AI system may cause harm based on age
+harm_distribution_basis_disability,Disability,Risk of AI system may cause harm based on disabilities
+harm_distribution_basis_familial_status,Familial Status,Risk of AI system may cause harm based on familial status
+harm_distribution_basis_financial_means,Financial Means,Risk of AI system may cause harm based on financial status
+harm_distribution_basis_geography,Geography,Risk of AI system may cause geographical harm
+harm_distribution_basis_ideology,Ideology,Risk of AI system may cause harm based on certain ideology
+harm_distribution_basis_nationality,Nationality,Risk of AI system may cause harm based on nationality
+harm_distribution_basis_other,Other,Risk of AI system may cause other harm which yet to be characterized
+harm_distribution_basis_race,Race,Risk of AI system may cause harm certain race group
+harm_distribution_basis_religion,Religion,Risk of AI system may cause harm certain religion group
+harm_distribution_basis_sex,Gender,Risk of AI system may cause harm certain gender
+harm_distribution_basis_sexual_orientation_or_gender_identity,Sexual Orientation,Risk of AI system may cause harm certain sexual orientation group
+sector_of_deployment_arts,Arts,Risk of AI system incident occurance in Arts sector
+sector_of_deployment_education,Education,Risk of AI system incident occurance in Education industry sector
+sector_of_deployment_accommodation_and_food_service_activities,Accommodation and Food Service Activities,Risk of AI system incident occurance in Accommodation and Food Service industry sector
+sector_of_deployment_administrative_and_support_service_activities,Administrative and Support Service Activities,Risk of AI system incident occurance in Administrative and Support Service industry sector
+sector_of_deployment_defense,Defense,Risk of AI system incident occurance in Defense sector
+sector_of_deployment_entertainment_and_recreation,Entertainment and Recreation,Risk of AI system incident occurance in Entertainment and Recreation sector
+sector_of_deployment_financial_and_insurance_activities,Financial and Insurance Activities,Risk of AI system incident occurance in Financial and Insurance Activities sector
+sector_of_deployment_human_health_and_social_work_activities,Human Health and Social Work Activities,Risk of AI system incident occurance in Human Health and Social Work Activities sector
+sector_of_deployment_information_and_communication,Information and Communication,Risk of AI system incident occurance in Information and Communication sector
+sector_of_deployment_law_enforcement,Law Enforcement,Risk of AI system incident occurance in Law Enforcement sector
+sector_of_deployment_manufacturing,Manufacturing,Risk of AI system incident occurance in Manufacturing sector
+sector_of_deployment_other,Other,Risk of AI system incident occurance in Other sector
+sector_of_deployment_other_service_activities,Other Service Activities,Risk of AI system incident occurance in Other Service Activities sector
+sector_of_deployment_professional,Professional,Risk of AI system incident occurance in Professional sector
+sector_of_deployment_public_administration,Public Administration,Risk of AI system incident occurance in Public Administration sector
+sector_of_deployment_real_estate_activities,Real Estate Activities,Risk of AI system incident occurance in Real Estate sector
+sector_of_deployment_scientific_and_technical_activities,Scientific and Technical Activities,Risk of AI system incident occurance in Scientific and Technical sector
+sector_of_deployment_transportation_and_storage,Transportation and Storage,Risk of AI system incident occurance in Transportation and Storage sector
+sector_of_deployment_wholesale_and_retail_trade,Wholesale and Retail Trade,Risk of AI system incident occurance in Wholesale and Retail Trade sector
