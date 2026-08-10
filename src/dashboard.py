@@ -235,7 +235,7 @@ def render_feature_input(feature_name, index):
 st.title("AI Risk Assessment - Data Input")
 
 with st.form("input_form"):
-    st.subheader("Enter Feature Values")
+    st.subheader("Risk Assessment Form")
     
     # Create input fields dynamically based on model features
     input_values = []
