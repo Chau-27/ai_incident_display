@@ -1,14 +1,14 @@
 features,form_label,risk_exposure_label
 physical_objects,Does the AI system interact with physical objects?,Risk of AI system Interecting with physical world
-not_study_or_research,Is the AI system usage applied outside of study or research purposes only? (YES = NOT for study and research purpose),Risk of AI usage is no longer confined for study an researc purposes
-impact_on_critical_services,Does the AI system impact critical services?        ,Risk of AI system affecting critical services
+not_study_or_research,Is the AI system usage applied outside of study or research purposes only? (YES = NOT for study and research purpose),Risk of AI usage is no longer confined for study and research purposes
+impact_on_critical_services,Does the AI system impact critical services?,Risk of AI system affecting critical services
 rights_violation,Does the AI system likely to violate any legal rights?,Risk of AI system may cause legal rights violations
-involving_minor,Does the AI system involve minor(s)?,Risk of AI system may affect minority groups
+involving_minor,Does the AI system involve minority group(s)?,Risk of AI system may affect minority group(s)
 detrimental_content,Does the AI system likely to generate or promote detrimental content?,Risk of AI system may cause detrimental content
 protected_characteristic,Does the AI system likely to discriminate against protected characteristics?,Risk of AI system may discriminate against protected characteristics
 multiple_ai_interaction,Does the AI system have interaction with other AI systems?,Risk of AI system may cause harm or chained harm with other AI systems
 public_sector_deployment,Is the AI system deployed in public services?,Risk of AI system may affect public services
-designed_to_harm,Is the AI system designed to cause harm or facilitate harmful activities?,"Risk of AI system is designed to harm by design, thus increasing harm impact."
+designed_to_harm,Is the AI system designed to cause harm or facilitate harmful activities?,Risk of AI system is designed to harm by design, thus increasing harm impact
 deployed,Is the AI system deployed into production system?,AI system being deployed into production
 tech_vision,computer vision technology,Risk of AI system in relation to computer vision technological incident
 tech_nlp,natural language processing technology,Risk of AI system in relation to natural language processing technological incident
