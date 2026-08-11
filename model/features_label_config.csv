@@ -8,7 +8,7 @@ detrimental_content,Does the AI system likely to generate or promote detrimental
 protected_characteristic,Does the AI system likely to discriminate against protected characteristics?,Risk of AI system may discriminate against protected characteristics
 multiple_ai_interaction,Does the AI system have interaction with other AI systems?,Risk of AI system may cause harm or chained harm with other AI systems
 public_sector_deployment,Is the AI system deployed in public services?,Risk of AI system may affect public services
-designed_to_harm,Is the AI system designed to cause harm or facilitate harmful activities?,Risk of AI system is designed to harm by design, thus increasing harm impact
+designed_to_harm,Is the AI system designed to cause harm or facilitate harmful activities?,Risk of AI system is designed to harm by design which in turn cause the AI to harm
 deployed,Is the AI system deployed into production system?,AI system being deployed into production
 tech_vision,computer vision technology,Risk of AI system in relation to computer vision technological incident
 tech_nlp,natural language processing technology,Risk of AI system in relation to natural language processing technological incident
